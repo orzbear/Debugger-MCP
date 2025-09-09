@@ -1,2 +1,2 @@
 # Debugger-MCP
-Debugger MCP
+Debugger MCP for testing
