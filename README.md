@@ -5,17 +5,6 @@ Python debugger (powered by `debugpy`) over the **Debug Adapter Protocol (DAP)**
 It allows AI hosts (e.g. Cursor, Claude, Gemini) to set breakpoints, launch
 programs, step through code, and inspect variables.
 
-## Features (Week-6 MVP)
-
-- ✅ Launch Python programs under `debugpy`
-- ✅ Set / clear breakpoints
-- ✅ Pause execution and inspect variables
-- ✅ Step over, step in, step out, continue, and terminate
-- ✅ Return call stack and scopes
-
-This satisfies the **Week-6 milestone** in the proposal:
-> *“Build an initial Debug Adapter Protocol (DAP) MVP using debugpy.”*
-
 ---
 
 ## Installation & Setup
