@@ -15,6 +15,7 @@ programs, step through code, and inspect variables.
 python -m venv .venv
 .venv\Scripts\activate
 pip install -r requirements.txt
+```
 
 2. Copy config.example.json → config.json and edit as needed (paths, Python
 executable). Example provided below.
