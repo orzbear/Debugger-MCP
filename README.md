@@ -23,6 +23,7 @@ executable). Example provided below.
 3. Start the MCP server:
 ```bash
 dap-mcp --config config.json
+```
 
 4. Connect with an MCP host (Cursor, Claude Desktop, or custom client).
 
@@ -43,6 +44,7 @@ Example Config (config.example.json)
     "PYTHONUTF8": "1"
   }
 }
+```
 
 
 
