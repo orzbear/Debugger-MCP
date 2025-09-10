@@ -1,0 +1,51 @@
+# Python bytecode / cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pkl
+*.egg-info/
+*.egg
+
+# Virtual environment
+.venv
+.venv/
+venv/
+env/
+
+# Build & packaging
+build/
+dist/
+*.egg-info/
+
+# Logs & debug
+*.log
+*.out
+*.err
+
+# IDE / Editor settings
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Coverage / testing
+.coverage
+*.coverage
+*.pytest_cache/
+.pytest_cache/
+htmlcov/
+.tox/
+.mypy_cache/
+
+# Local configs (don’t leak personal paths)
+config.json
+*.local.json
+
+# Cursor / MCP cache
+.mcp/
+*.mcp_cache/
