@@ -1,27 +1,58 @@
-# dap-mcp
+# DAP-MCP Debugger MVP
 
-**dap-mcp** is an implementation of the [Model Context Protocol (MCP)](https://example.com/mcp-spec) tailored for managing Debug Adapter Protocol (DAP) sessions. MCP provides a standardized framework to optimize and extend the context window of large language models, and in this project, it is used to enhance and streamline debugging workflows.
+This project implements a **Model Context Protocol (MCP) server** that exposes a
+Python debugger (powered by `debugpy`) over the **Debug Adapter Protocol (DAP)**.
+It allows AI hosts (e.g. Cursor, Claude, Gemini) to set breakpoints, launch
+programs, step through code, and inspect variables.
 
-## Features
+## Features (Week-6 MVP)
 
-- **Debug Adapter Protocol Integration:** Interact with debuggers using a standardized protocol.
-- **MCP Framework:** Leverage MCP to optimize context and enhance debugging workflows.
-- **Rich Debugging Tools:** Set, list, and remove breakpoints; control execution (continue, step in/out/next); evaluate expressions; change stack frames; and view source code.
-- **Flexible Configuration:** Customize debugger settings, source directories, and other parameters via a JSON configuration file.
-## Installation
+- ✅ Launch Python programs under `debugpy`
+- ✅ Set / clear breakpoints
+- ✅ Pause execution and inspect variables
+- ✅ Step over, step in, step out, continue, and terminate
+- ✅ Return call stack and scopes
 
-### Prerequisites
+This satisfies the **Week-6 milestone** in the proposal:
+> *“Build an initial Debug Adapter Protocol (DAP) MVP using debugpy.”*
 
-- Python 3.10 or higher
-- [uv](https://github.com/astral-sh/uv) (optional, for running the server)
+---
 
-### Installing and Running the Server
+## Installation & Setup
 
-Install **dap-mcp** and its dependencies:
+1. Clone this repository and install dependencies:
 
 ```bash
-pip install dap-mcp
-python -m dap_mcp --config config.json
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
 
-# Or, if you have uv installed
-uvx dap-mcp@latest --config config.json
+2. Copy config.example.json → config.json and edit as needed (paths, Python
+executable). Example provided below.
+
+3. Start the MCP server:
+```bash
+dap-mcp --config config.json
+
+4. Connect with an MCP host (Cursor, Claude Desktop, or custom client).
+
+Example Config (config.example.json)
+```jsonc
+{
+  "type": "debugpy",
+  "debuggerPath": "./.venv/Scripts/python.exe", // Path to your Python interpreter
+  "debuggerArgs": ["-m", "debugpy.adapter"],
+  "sourceDirs": ["./src"],
+
+  // Program to run by default when calling `launch` with no args
+  "program": "./demo.py",
+  "cwd": ".",
+
+  // Optional environment variables (enable UTF-8 on Windows)
+  "env": {
+    "PYTHONUTF8": "1"
+  }
+}
+
+
+
