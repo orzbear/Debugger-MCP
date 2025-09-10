@@ -46,5 +46,58 @@ Example Config (config.example.json)
 }
 ```
 
+Demo Script (demo.py)
+```python
+import time
+
+def add(a, b):
+    c = a + b  # Set a breakpoint here!
+    return c
+
+if __name__ == "__main__":
+    x = add(2, 3)
+    time.sleep(1)
+    print("x =", x)
+```
+Example MCP Calls
+
+These examples assume dap-mcp is running and the MCP host can send tool calls.
+
+1. Set a breakpoint
+```json
+{
+  "file_path": "./demo.py",
+  "line": 5
+}
+```
+
+2. Launch the program
+```json
+{
+  "program": "./demo.py",
+  "cwd": ".",
+  "args": []
+}
+```
+
+3. Evaluate a variable while paused
+```json
+{ "expression": "a" }
+```
+
+4.Step over the current line
+```json
+{}
+```
+
+5. Continue execution until program ends
+```json
+{}
+```
+
+
+
+
+
 
 
